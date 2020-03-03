@@ -1,0 +1,78 @@
+.carousel {
+  position: relative;
+
+  &__img {
+    display: none;
+    width: 100%;
+    height: 35rem;
+    pointer-events: none;
+    object-fit: cover;
+
+    @include respond(phone) {
+      height: 20rem;
+    }
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    font-size: 4rem;
+    top: calc(50% - 3rem);
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &--left {
+      left: -$space-xl;
+      z-index: 3;
+
+      @include respond(tab-port) {
+        left: $space-md;
+        color: $color-primary;
+      }
+    }
+
+    &--right {
+      right: -$space-xl;
+
+      @include respond(tab-port) {
+        right: $space-md;
+        color: $color-primary;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.6;
+    }
+
+    &:disabled:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: $space-md;
+  }
+
+  &__circle {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    background-color: $color-black;
+    position: relative;
+    margin-left: $space-sm;
+    opacity: 0.4;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+}

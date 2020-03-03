@@ -1,0 +1,80 @@
+.btn {
+  font-size: 1.8rem;
+
+  &--transparent {
+    border: none;
+    background-color: transparent;
+  }
+
+  &-hamburger {
+    border: none;
+    background-color: transparent;
+    display: none;
+    padding: 1rem 0;
+
+    @include respond(phone) {
+      display: block;
+    }
+  }
+}
+
+.link {
+  color: $color-brown;
+}
+
+.heading-secondary {
+  font-size: 2.8rem;
+}
+
+.heading-tertiary {
+  font-size: 2rem;
+}
+
+.paragraph {
+  font-family: $font-secondary;
+}
+
+.red {
+  color: #c22b2b;
+}
+
+.icon-hamburger {
+  width: 3.3rem;
+  height: 0.4rem;
+  display: block;
+  background-color: $color-black;
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    width: 3.3rem;
+    height: 0.4rem;
+    background-color: $color-black;
+    display: block;
+    left: 0;
+  }
+
+  &::before {
+    top: -0.8rem;
+  }
+
+  &::after {
+    bottom: -0.8rem;
+  }
+
+  &--active {
+    background-color: transparent;
+
+    &::before {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+      top: 0;
+    }
+  }
+}

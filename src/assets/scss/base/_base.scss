@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: $font-primary;
+}
+
+button:disabled {
+  cursor: initial;
+}
+
+html {
+  font-size: 62.5%; // 1px = 0.1rem
+  box-sizing: border-box;
+
+  @include respond(tab-land) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-family: $font-primary;
+  background-color: $color-primary;
+  min-height: 100vh;
+}
+
+#app {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(6rem, 1fr) [sub-start] $space-grid [sub-end]
+    minmax(6rem, 1fr)
+    [full-end];
+  grid-template-rows: min-content 1fr max-content;
+  padding: $space-sm 0 0 0;
+  grid-gap: $space-lg 0;
+  position: relative;
+
+  @include respond(tab-port) {
+    grid-template-columns: [sub-start] 100% [sub-end];
+  }
+}
+
+.header,
+.container,
+.footer {
+  grid-column: sub-start / sub-end;
+}
+
+.header {
+  grid-row: 1 / 2;
+
+  display: grid;
+  grid-template-rows: repeat(3, min-content);
+
+  @include respond(tab-port) {
+    padding: $space-sm $space-lg;
+  }
+}
+
+.container {
+  grid-row: 2 / 3;
+
+  display: grid;
+  grid-template-columns:
+    [center-start]
+    repeat(3, [col-start] minmax(min-content, 1fr) [col-end]) [center-end];
+
+  @include respond(tab-port) {
+    padding: $space-sm $space-lg;
+  }
+}
+
+.footer {
+  grid-row: 3 / -1;
+  grid-column: full-start / full-end;
+
+  display: grid;
+  grid-template-columns: minmax(6rem, 1fr) $space-grid minmax(6rem, 1fr);
+  background-color: $color-primary-dark;
+
+  @include respond(tab-port) {
+    grid-column: sub-start / sub-end;
+    grid-template-columns: 1fr;
+    padding: $space-sm $space-lg;
+    text-align: center;
+  }
+}

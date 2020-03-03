@@ -1,0 +1,42 @@
+.footer {
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    line-height: 2;
+  }
+
+  &__copyright {
+    align-self: center;
+  }
+
+  &__paragraph {
+    color: rgba($color-black, 0.6);
+    line-height: 2;
+  }
+
+  &__link {
+    color: rgba($color-black, 0.6);
+    text-decoration: none;
+
+    &--red {
+      color: $color-red;
+    }
+  }
+}
+
+.footer-content {
+  grid-column: 2 / 3;
+
+  display: grid;
+  padding: 5rem 0;
+  grid-template-columns: repeat(3, 1fr);
+  font-size: 1.8rem;
+
+  @include respond(tab-port) {
+    grid-column: 1 / -1;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+  }
+}

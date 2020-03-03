@@ -1,0 +1,15 @@
+.home {
+  gap: $space-lg 0;
+}
+
+.news {
+  padding-bottom: $space-lg;
+  border-bottom: 0.2rem solid $color-primary-dark;
+}
+
+.hero,
+.news,
+.events,
+.social {
+  grid-column: center-start / center-end;
+}

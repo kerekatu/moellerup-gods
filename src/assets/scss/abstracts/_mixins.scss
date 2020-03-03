@@ -1,0 +1,26 @@
+/* 
+MEDIA QUERIES SELECTOR
+0-750px (46.875em): Phone
+750-900px (56.25em): Tab-port
+900-1050px (65.625em): Tab-land
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 46.875em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 65.625em) {
+      @content;
+    }
+  }
+}
